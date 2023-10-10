@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: content: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
+    <script src="components/loader.js"></script>
+    <link rel="stylesheet" href="components/loader.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+    </script>
+</head>
+<body>
+	<br />
+<h1>Teste Bateria Plugin</h1>
+
+
+<button  id="exibirNivelBateria">Exibir nivel de bateria</button>
+<button  id="testeCarregar" onclick="teste">Teste</button>
+<br><br>
+<div class="bateria">
+
+<span id="spanBateria"></span> 
+<span id="spanBateria2"></span> 
+<progress id="statusBateria" value="50" max="100" min="0">
+    
+</div>
+
+<script> src="cordova.js"</script>
+<script type="text/javascript">
+document.getElementById("exibirNivelBateria").addEventListener("click",function(){
+    navigator.getBattery().then(function(battery){
+        alert ("Nível de bateria:"+(battery.level*100)+"%");
+        document.getElementById("spanBateria").innerHTML="Nivel:"+""+(battery.level*100)+"%";
+        window.addEventListener("batterystatus", onBatteryStatus, false);
+       
+
+      
+      
+
+    });
+  
+});
+ 
+      
+   
+       
+
+</script>
+<style>
+    button{
+        cursor:pointer;
+    }
+    .bateria{
+        height:2rem;
+
+    }
+</style>
+</body>
+</html>
